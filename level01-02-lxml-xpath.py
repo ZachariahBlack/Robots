@@ -2,7 +2,7 @@ import sys, os
 import requests
 from lxml import etree
 
-from libs.bc_common import print_split
+from bclibs.split import print_split
 
 
 url = "https://book.douban.com/subject/3633461/comments/"
