@@ -32,7 +32,11 @@ headers = {
 }
 
 # We only need 'data' node
-response = requests.get(url, headers=headers).json()# ['data']
+r = requests.get(url, headers=headers)
+# r.encoding = r.apparent_encoding doesn't work, r.apparent_encoding is ascii for zhihu...
+# we have to set it manually
+r.encoding = 'utf-8'
+response = r.json()['data']
 
 # Tips: 
 # Even the output of requests is json(), you won't get correct format of json if just stop at below line then dump to python -mjson.tool
@@ -56,4 +60,6 @@ df = pd.DataFrame.from_dict(response)
 # ValueError: Mixing dicts with non-Series may lead to ambiguous ordering.
 # 
 print(df.head())
-
+# I believe we save the file with correct encoding and the original response was also in correct encoding
+# TODO: Need to figure out why it's garbage after openning csv in Excel
+df.to_csv('level01-04-headers.csv', encoding='utf-8')
