@@ -2,6 +2,7 @@ import sys, os
 import urllib.request
 
 
+
 f = urllib.request.urlopen('http://google.com')
 print(f.read(500))
 # Usually, no need to use UTF-8 on English page.
@@ -20,6 +21,8 @@ r = requests.get("http://google.com")
 print("==============================================================")
 print(r.text) # TODO: Using default encoding, what's the default encoding?
 # If it's UTF-8, like baidu.com, above will show garbage for Chinese characters
+print("==============================================================")
+print(r.encoding)
 r.encoding = "utf-8"
 print("==============================================================")
 print(r.text)
