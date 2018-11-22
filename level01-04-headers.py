@@ -61,5 +61,25 @@ df = pd.DataFrame.from_dict(response)
 # 
 print(df.head())
 # I believe we save the file with correct encoding and the original response was also in correct encoding
-# TODO: Need to figure out why it's garbage after openning csv in Excel
+# Tips: 
+# Need to make sure the software you're going to open the csv support the encoding, like UTF-8
+# For example, on my Mac, my Excel can't display Chinese characters correctly.
+# But open it in TextEdit or Numbers and other editors they're fine.
 df.to_csv('level01-04-headers.csv', encoding='utf-8')
+
+# Step 3: Let's save all followers
+user_data = []
+def get_user_data(page):
+    for i in range(page):
+        var_url = "https://www.zhihu.com/api/v4/members/chen-zhi-tao-84-12/followers?include=data%5B*%5D.answer_count%2Carticles_count%2Cgender%2Cfollower_count%2Cis_followed%2Cis_following%2Cbadge%5B%3F(type%3Dbest_answerer)%5D.topics&offset={}&limit=20".format(i*20)
+        results = requests.get(var_url, headers=headers)
+        results.encoding = 'utf-8'
+        data = results.json()['data']
+        if data != []:
+            user_data.extend(data)
+        else:
+            print("No more data at page: {}".format(i))
+
+get_user_data(10)
+df = pd.DataFrame.from_dict(user_data)
+df.to_csv('all_followers.csv')
