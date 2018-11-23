@@ -36,3 +36,5 @@ response = requests.post(url, headers=headers, data=payload)
 
 requests.post(url, headers=headers, data=payload)
 my_set.insert_one(response.json()['content']['positionResult'])
+
+# Task 3: Pull all data and save into mongodb
