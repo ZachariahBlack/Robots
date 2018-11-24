@@ -32,7 +32,7 @@ headers = {
 payload = {
     'first': 'true',
     'pn': '1',  # This is the page number, you can get totalCount from json, then calculate how much page it would be
-    'kd': 'Java',  # Keyword
+    'kd': 'Python',  # Keyword
 }
 
 response = requests.post(url, headers=headers, data=payload)
@@ -92,7 +92,7 @@ while remain:
             'first': 'true',
             'pn': i,
             # This is the page number, you can get totalCount from json, then calculate how much page it would be
-            'kd': 'Java',  # Keyword
+            'kd': 'Python',  # Keyword
         }
     else:
         remain = False
