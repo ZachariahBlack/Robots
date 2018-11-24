@@ -61,11 +61,11 @@ while remain:
     headers['User-Agent'] = ua.random
 
     cookie = "JSESSIONID=" + get_uuid() + ";" \
-                                          "user_trace_token=" + get_uuid() + "; LGUID=" + get_uuid() + ";" \
-                                                                                                       "SEARCH_ID=" + get_uuid() + '; _gid=GA1.2.717841549.1514043316; ' \
-                                                                                                                                   '_ga=GA1.2.952298646.1514043316; ' \
-                                                                                                                                   'LGSID=' + get_uuid() + "; " \
-                                                                                                                                                           "LGRID=" + get_uuid() + "; "
+            "user_trace_token=" + get_uuid() + "; LGUID=" + get_uuid() + ";" \
+            "SEARCH_ID=" + get_uuid() + '; _gid=GA1.2.717841549.1514043316; ' \
+            '_ga=GA1.2.952298646.1514043316; ' \
+            'LGSID=' + get_uuid() + "; " \
+            "LGRID=" + get_uuid() + "; "
 
     headers['cookie'] = cookie
     print('UA:' + str(headers['User-Agent']))
@@ -91,7 +91,7 @@ while remain:
         payload = {
             'first': 'true',
             'pn': i,
-        # This is the page number, you can get totalCount from json, then calculate how much page it would be
+            # This is the page number, you can get totalCount from json, then calculate how much page it would be
             'kd': 'Java',  # Keyword
         }
     else:
