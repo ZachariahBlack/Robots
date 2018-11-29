@@ -20,7 +20,7 @@ class SpiderGdSpider(scrapy.Spider):
         # text:Project Manager Jobs
         # text:More
         for item in li_text:
-            print('text:' + item.text())
+            yield { "test": item.text() }
 
         
 

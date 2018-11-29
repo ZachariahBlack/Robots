@@ -10,7 +10,6 @@ import scrapy
 
 class GdItem(scrapy.Item):
     # define the fields for your item here like:
-    job_name = scrapy.Field()
-    company_name = scrapy.Field()
-    location = scrapy.Field()
+    name = scrapy.Field()
     pass
+
