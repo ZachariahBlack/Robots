@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from pyquery import *
-import json
 
 
 class SafariSpider(scrapy.Spider):
